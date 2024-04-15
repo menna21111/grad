@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grad/constants.dart';
-import 'package:grad/features/splachview/preslayer/views/fristpage.dart';
+import 'package:grad/features/splachview/preslayer/views/splachviewBody.dart';
+import 'package:grad/features/splachview/preslayer/views/widget/splahview.dart';
 import 'package:grad/pages/secandpage.dart';
 import 'package:get/get.dart';
 void main() {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         homepage.id:(context) => homepage(),
       } ,
       debugShowCheckedModeBanner: false,
-    home: homepage()
+    home: SplashView()
     );
   }
 }

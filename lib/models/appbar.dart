@@ -10,34 +10,31 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: abarcolor,
-      elevation: 0, // Removes the shadow
+      elevation: 1, // Removes the shadow
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(
-            icon: Icon(Icons.menu),
-            onPressed: () {
-              // Add your menu icon functionality here
-            },
-          ),
+          
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 15),
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
             child: SizedBox(
-              width: 250,
-              height: 27,
+               width: MediaQuery.of(context).size.width * .6,
+              height: 36,
               child: TextField(
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
-                  prefixIcon: Icon(FontAwesomeIcons.magnifyingGlass,
-                  size: 20,),
-                  suffixIcon: Icon(Icons.menu),
+                  prefixIcon: Icon(
+                    FontAwesomeIcons.search,
+                    size: 20,color: Colors.orange,
+                  ),
+                  suffixIcon: Icon(Icons.menu,color: Colors.orange,),
                   contentPadding: EdgeInsets.symmetric(horizontal: 8),
                   hintText: 'Search',
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                   hintStyle: TextStyle(
                     fontSize: 15,
-                    color: Colors.black,
+                    color: Color.fromARGB(255, 107, 99, 99),
                   ),
                 ),
                 onChanged: (value) {

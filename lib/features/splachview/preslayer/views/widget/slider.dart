@@ -1,51 +1,51 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:grad/core/utls/assets.dart';
+import 'package:another_carousel_pro/another_carousel_pro.dart';
+import 'package:grad/core/utls/imageprop.dart';
 
 class ImageSlider extends StatelessWidget {
-  final List<String> imageUrls = [
-    "assets/Property 1=Frame 2.png",
-    'https://example.com/image2.jpg',
-    'https://example.com/image3.jpg',
-    // Add more image URLs as needed
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Image Slider'),
-      ),
-      body: Center(
-        child: CarouselSlider(
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * .35,
+      width: MediaQuery.of(context).size.width,
+      child: CarouselSlider(
+          items: [
+            //1st Image of Slider
+            ImageContainerModel(
+              imagePath: AssetsData.slide1,
+            ),
+
+            //2nd Image of Slider
+            ImageContainerModel(
+              imagePath: AssetsData.slide2,
+            ),
+            //3rd Image of Slider
+            ImageContainerModel(
+              imagePath: AssetsData.slide3,
+            ),
+
+            //4th Image of Slider
+            ImageContainerModel(
+              imagePath: AssetsData.slide4,
+            ),
+          ],
+
+          //Slider Container properties
           options: CarouselOptions(
-            height: 200.0,
-            enlargeCenterPage: true,
+            height: MediaQuery.of(context).size.height,
             autoPlay: true,
-            aspectRatio: 16 / 9,
-            autoPlayCurve: Curves.fastOutSlowIn,
+            initialPage: 0,
             enableInfiniteScroll: true,
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
-            viewportFraction: 0.8,
-          ),
-          items: imageUrls.map((url) {
-            return Builder(
-              builder: (BuildContext context) {
-                return Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin: EdgeInsets.symmetric(horizontal: 5.0),
-                  decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: Image.network(
-                    url,
-                    fit: BoxFit.cover,
-                  ),
-                );
-              },
-            );
-          }).toList(),
-        ),
-      ),
+            viewportFraction: 1,
+            enlargeCenterPage: true,
+            enlargeFactor: 0.3,
+            pageSnapping: true,
+            autoPlayInterval: Duration(seconds: 2),
+            autoPlayCurve: Curves.fastOutSlowIn,
+            autoPlayAnimationDuration: const Duration(milliseconds: 200),
+          )),
     );
   }
 }

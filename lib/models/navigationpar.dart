@@ -4,11 +4,7 @@ import 'package:grad/constants.dart';
  
 class navgbar extends StatelessWidget{
   @override
- 
 
-
-
-  
 
  
   Widget build(BuildContext context) {
