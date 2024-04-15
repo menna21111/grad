@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         homepage.id:(context) => homepage(),
       } ,
       debugShowCheckedModeBanner: false,
-    home: SplashView()
+    home: homepage()
     );
   }
 }

@@ -1,25 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:grad/constants.dart';
 import 'package:grad/core/utls/assets.dart';
+import 'package:grad/core/utls/style.dart';
 
-class splachviewbody extends StatelessWidget {
+class splachviewbody extends StatefulWidget {
   const splachviewbody({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold
-    ( body: Center(
-        child: Container(
-          decoration: BoxDecoration(
-            color: dbackgroundcolor,
-            image: DecorationImage(
-              image: AssetImage(AssetsData.logo),
-            ),
-          ),
-        ),
-      ),
+  State<splachviewbody> createState() => _splachviewbodyState();
+}
 
-    );
+class _splachviewbodyState extends State<splachviewbody>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+  late Animation<Offset> slidingAnimation;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SizedBox(  height:  MediaQuery.of(context).size.height * .4,
+        
+          child: Image.asset(AssetsData.logo, 
+         
+                         )),
+        SizedBox(
+          height: 4,
+        ),
+        Text(
+          'welcome to egypt ...',
+          textAlign: TextAlign.center,
+          style: Textstyle.textStyle12,
+        )
+      ],
+    ));
   }
 }
 // }
